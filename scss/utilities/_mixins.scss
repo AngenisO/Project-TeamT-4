@@ -1,0 +1,35 @@
+@mixin e ($element){
+    &__#{$element}{
+        @content;
+    }
+}
+
+@mixin btn{
+        margin-top: 15px;
+        width: 100%;
+        color: $white;
+        border: none;
+        padding: 10px 0;
+        text-transform: uppercase;
+        border-radius: 5px;
+      }
+
+@mixin buttons($map) {
+    @each $btn-color, $color in $map {
+        &.#{$btn-color}{
+            background-color: $color;
+            &:hover {
+                background-color: lighten($color,20%);
+                transition: background-color .2s ease-in .6s; 
+            }
+        }
+    }
+}
+
+@mixin grid($map){
+    @each $grid-colors, $color in $map {
+        &.#{$grid-colors}{
+            background-color: $color;
+        }
+    }
+}
